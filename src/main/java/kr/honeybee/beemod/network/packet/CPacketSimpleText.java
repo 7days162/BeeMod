@@ -6,12 +6,12 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class PacketSimpleText implements IMessage, IMessageHandler<PacketSimpleText, IMessage> {
+public class CPacketSimpleText implements IMessage, IMessageHandler<CPacketSimpleText, IMessage> {
     private String text;
 
-    public PacketSimpleText() {}
+    public CPacketSimpleText() {}
 
-    public PacketSimpleText(String text) {
+    public CPacketSimpleText(String text) {
         this.text = text;
     }
 
@@ -26,11 +26,7 @@ public class PacketSimpleText implements IMessage, IMessageHandler<PacketSimpleT
     }
 
     @Override
-    public IMessage onMessage(PacketSimpleText message, MessageContext ctx) {
-        System.out.println("Packet " + message + " from " + ctx.getServerHandler().player.getName());
-
-
-
+    public IMessage onMessage(CPacketSimpleText message, MessageContext ctx) {
         return null;
     }
 }
