@@ -1,6 +1,8 @@
 package kr.honeybee.beemod.init;
 
+import kr.honeybee.beemod.BeeMod;
 import kr.honeybee.beemod.Reference;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -15,6 +17,7 @@ import java.util.List;
 
 public class RegistrationHandler {
     public static void init() {
+        BeeBlocks.register();
         BeeItems.register();
     }
 
@@ -33,6 +36,25 @@ public class RegistrationHandler {
         @SubscribeEvent
         public static void register(final RegistryEvent.Register<Item> event) {
             ITEMS.forEach(event.getRegistry()::register);
+            ITEMS.forEach(BeeMod.proxy::registerModel);
+        }
+    }
+
+    @Mod.EventBusSubscriber
+    public static class Blocks {
+        private static final List<Block> BLOCKS = new LinkedList<>();
+
+        static void add(Block block) {
+            BLOCKS.add(block);
+        }
+
+        public static List<Block> getBlocks() {
+            return BLOCKS;
+        }
+
+        @SubscribeEvent
+        public static void register(final RegistryEvent.Register<Block> event) {
+            BLOCKS.forEach(event.getRegistry()::register);
         }
     }
 
