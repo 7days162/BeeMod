@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "BeeMod",
+    "name": "BeeMod",
+    "description": "Minecraft Honey-Bee Online's Core Mod",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "7days162"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
