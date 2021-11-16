@@ -1,6 +1,13 @@
-itemGroup.items=Honey-Bee Online's Items
+itemGroup.BeeItemTab=꿀벌온라인 아이템
+itemGroup.BeeBlockTab=꿀벌온라인 블럭
+
 
 item.card.name=카드
 item.bankbook.name=통장
+item.cheon.name=천 원권 지폐
+item.ocheon.name=오천 원권 지폐
+item.man.name=만 원권 지폐
+item.oman.name=오만 원권 지폐
 
 tile.clearglass.name=투명 유리
+tile.atm.name=ATM

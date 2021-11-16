@@ -1,21 +1,21 @@
 {
 	"credit": "Made with Blockbench",
+	"texture_size": [16, 33],
 	"textures": {
-		"0": "beemod:items/card1",
-		"1": "beemod:items/card2",
-		"particle": "beemod:items/card1"
+		"0": "beemod:items/oman",
+		"particle": "beemod:items/oman"
 	},
 	"elements": [
 		{
 			"from": [0, 0, 8],
-			"to": [16, 9, 8.5],
+			"to": [16, 8, 8.5],
 			"faces": {
-				"north": {"uv": [0, 0, 16, 8.88154], "texture": "#1"},
-				"east": {"uv": [0, 4.25344, 0.91873, 8], "texture": "#1"},
-				"south": {"uv": [0, 0, 16, 8.88154], "texture": "#0"},
-				"west": {"uv": [0, 2.90909, 0.36777, 8], "texture": "#0"},
-				"up": {"uv": [0, 0, 4.45179, 0.58815], "texture": "#1"},
-				"down": {"uv": [3.6584, 6.52342, 4.67218, 7.17769], "texture": "#1"}
+				"north": {"uv": [0, 0, 16, 7.75758], "texture": "#0"},
+				"east": {"uv": [0, 0, 0.5, 3.87879], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 7.75758], "texture": "#0"},
+				"west": {"uv": [0, 0, 0.5, 3.87879], "texture": "#0"},
+				"up": {"uv": [0, 0, 4.45179, 0.28517], "texture": "#0"},
+				"down": {"uv": [9.01377, 0, 16, 0.5523], "texture": "#0"}
 			}
 		}
 	],
@@ -47,11 +47,9 @@
 			"scale": [0.9, 0.9, 0.9]
 		},
 		"head": {
-			"rotation": [180, 0, 180],
 			"translation": [0, 14, 0]
 		},
 		"fixed": {
-			"rotation": [0, -180, 0],
 			"translation": [0, 3, -1]
 		}
 	}

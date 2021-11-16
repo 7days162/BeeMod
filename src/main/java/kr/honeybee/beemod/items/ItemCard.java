@@ -9,7 +9,4 @@ public class ItemCard extends BeeItem {
         setCreativeTab(BeeMod.beeItemTab);
         setMaxStackSize(1);
     }
-
-    public void a() {
-    }
 }

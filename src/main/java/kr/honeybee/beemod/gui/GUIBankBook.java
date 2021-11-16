@@ -1,7 +1,6 @@
 package kr.honeybee.beemod.gui;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -10,19 +9,17 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
-public class GUIBankBook extends GuiScreen {
-    private static final int width = 256;
-    private static final int height = 256;
+public class GUIBankBook extends BeeGuiScreen {
     private static final int TITLE_COLOR = Color.black.getRGB();
     private static final int CONTENT_COLOR = Color.darkGray.getRGB();
 
     private final List<String> log;
-    int currentLine = 0;
+    private int currentLine = 0;
 
-    private ScaledResolution resolution;
+    public ScaledResolution resolution;
 
     public GUIBankBook(List<String> log) {
-        super.mc = Minecraft.getMinecraft();
+        super(256, 256);
         this.log = log;
 
         // TODO
@@ -33,16 +30,10 @@ public class GUIBankBook extends GuiScreen {
     }
 
     @Override
-    public void initGui() {
-        resolution = new ScaledResolution(mc);
-
-        super.initGui();
-    }
-
-    @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         // Initialize
         if(mc == null) mc = Minecraft.getMinecraft();
+        if(fontRenderer == null) fontRenderer = Minecraft.getMinecraft().fontRenderer;
         resolution = new ScaledResolution(mc);
         currentLine = 0;
 
@@ -66,11 +57,11 @@ public class GUIBankBook extends GuiScreen {
     }
 
     public void drawFirstLine() {
-        fontRenderer.drawString("거래일", (float) ((getCenterX() - 105) - (fontRenderer.getStringWidth("거래일") / 2)), getCurrentLineY(), TITLE_COLOR, false);
-        fontRenderer.drawString("거래종류", (float) ((getCenterX() - 66) - (fontRenderer.getStringWidth("거래종류") / 2)), getCurrentLineY(), TITLE_COLOR, false);
-        fontRenderer.drawString("거래인", (float) ((getCenterX() - 18) - (fontRenderer.getStringWidth("거래인") / 2)), getCurrentLineY(), TITLE_COLOR, false);
-        fontRenderer.drawString("변경 금액(원)", (float) ((getCenterX() + 39) - (fontRenderer.getStringWidth("변경 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, false);
-        fontRenderer.drawString("남은 금액(원)", (float) ((getCenterX() + 96) - (fontRenderer.getStringWidth("남은 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, false);
+        fontRenderer.drawString("거래일", (float) ((getCenterX() - 105) - (fontRenderer.getStringWidth("거래일") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("거래종류", (float) ((getCenterX() - 66) - (fontRenderer.getStringWidth("거래종류") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("거래인", (float) ((getCenterX() - 18) - (fontRenderer.getStringWidth("거래인") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("변경 금액(원)", (float) ((getCenterX() + 39) - (fontRenderer.getStringWidth("변경 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("남은 금액(원)", (float) ((getCenterX() + 96) - (fontRenderer.getStringWidth("남은 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, true);
     }
 
     public void drawNextLine(String data) {
@@ -100,13 +91,5 @@ public class GUIBankBook extends GuiScreen {
 
     public int getCurrentLineY() {
         return getCenterY() - (-11 * currentLine + 74);
-    }
-
-    public int getCenterX() {
-        return resolution.getScaledWidth() / 2;
-    }
-
-    public int getCenterY() {
-        return resolution.getScaledHeight() / 2;
     }
 }
