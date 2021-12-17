@@ -5,11 +5,16 @@ import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class GUIATM extends BeeGuiScreen {
+    private String level;
+
     public GUIATM() {
         super(256, 256);
+
+        this.level = "메뉴";
     }
 
     @Override
@@ -22,7 +27,16 @@ public class GUIATM extends BeeGuiScreen {
         GL11.glColor4f(1, 1, 1, 1);
         drawDefaultBackground();
 
-        // 통장 배경 그리기
+        // ATM 배경 그리기
+        if(level.equalsIgnoreCase("메뉴")) {
+            drawMainMenu(mouseX, mouseY);
+        }
+
+
+        super.drawScreen(mouseX, mouseY, partialTicks);
+    }
+
+    private void drawMainMenu(int mouseX, int mouseY) {
         String point = getCurrentPoint(mouseX, mouseY);
 
         if(point == null) {
@@ -42,10 +56,13 @@ public class GUIATM extends BeeGuiScreen {
 
         drawTexturedModalRect((resolution.getScaledWidth() - width) / 2, (resolution.getScaledHeight() - height) / 2, 0, 0, width, height);
 
-        // 마우스 포인트 그리기는 왜 안될까????????????????????
-        // TODO
+        // TODO (마우스 포인트 그리는거 고쳐야 함)
+        drawRect(mouseX-1, mouseY+1, mouseX+1, mouseY-1, Color.black.getRGB());
+    }
 
-        super.drawScreen(mouseX, mouseY, partialTicks);
+    @Override
+    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+        super.mouseClicked(mouseX, mouseY, mouseButton);
     }
 
     @Override
@@ -55,6 +72,11 @@ public class GUIATM extends BeeGuiScreen {
         }
 
         super.keyTyped(typedChar, keyCode);
+    }
+
+    @Override
+    public boolean doesGuiPauseGame() {
+        return false;
     }
 
     private String getCurrentPoint(int x, int y) {
