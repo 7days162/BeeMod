@@ -1,11 +1,13 @@
 package kr.honeybee.beemod.gui;
 
+import kr.honeybee.beemod.network.PacketHandler;
+import kr.honeybee.beemod.network.packet.CPacketAtmInteract;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class GUIATM extends BeeGuiScreen {
@@ -32,7 +34,6 @@ public class GUIATM extends BeeGuiScreen {
             drawMainMenu(mouseX, mouseY);
         }
 
-
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
@@ -55,14 +56,18 @@ public class GUIATM extends BeeGuiScreen {
         }
 
         drawTexturedModalRect((resolution.getScaledWidth() - width) / 2, (resolution.getScaledHeight() - height) / 2, 0, 0, width, height);
-
-        // TODO (마우스 포인트 그리는거 고쳐야 함)
-        drawRect(mouseX-1, mouseY+1, mouseX+1, mouseY-1, Color.black.getRGB());
     }
 
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.mouseClicked(mouseX, mouseY, mouseButton);
+
+        String point = getCurrentPoint(mouseX, mouseY);
+
+        if(point != null) {
+            CPacketAtmInteract packet = new CPacketAtmInteract(Minecraft.getMinecraft().player.getHeldItem(EnumHand.MAIN_HAND), point);
+            PacketHandler.network.sendToServer(packet);
+        }
     }
 
     @Override

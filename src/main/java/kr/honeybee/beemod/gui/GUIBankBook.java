@@ -21,12 +21,6 @@ public class GUIBankBook extends BeeGuiScreen {
     public GUIBankBook(List<String> log) {
         super(256, 256);
         this.log = log;
-
-        // TODO
-        log.add("211112|입금|7days162|+18,000|384,290,000");
-        log.add("211113|출금|7days162|-100,000|384,190,000");
-        log.add("211113|이체▲|Principia_|-190,000|384,100,000");
-        log.add("211113|이체▼|Yahoo231|+10,000|384,110,000");
     }
 
     @Override

@@ -3,6 +3,7 @@ package kr.honeybee.beemod.network.packet;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import kr.honeybee.beemod.BeeMod;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -10,6 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SPacketOpenBankBook implements IMessage, IMessageHandler<SPacketOpenBankBook, IMessage>  {
@@ -33,7 +35,12 @@ public class SPacketOpenBankBook implements IMessage, IMessageHandler<SPacketOpe
     @Override
     public IMessage onMessage(SPacketOpenBankBook message, MessageContext ctx) {
         if(ctx.side == Side.CLIENT) {
-            BeeMod.proxy.openBankBook(log);
+            if(message.log == null || message.log.size() == 0 || (message.log.size() == 1 && !message.log.get(0).contains("|"))) {
+                Minecraft.getMinecraft().addScheduledTask(() -> BeeMod.proxy.openBankBook(Collections.emptyList()));
+                return null;
+            }
+
+            Minecraft.getMinecraft().addScheduledTask(() -> BeeMod.proxy.openBankBook(message.log));
         }
 
         return null;
