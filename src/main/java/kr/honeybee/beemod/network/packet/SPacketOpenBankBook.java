@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class SPacketOpenBankBook implements IMessage, IMessageHandler<SPacketOpenBankBook, IMessage>  {
+public class SPacketOpenBankBook implements IMessage, IMessageHandler<SPacketOpenBankBook, IMessage> {
     private List<String> log;
 
     public SPacketOpenBankBook() {}
