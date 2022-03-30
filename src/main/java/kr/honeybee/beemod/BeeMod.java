@@ -4,8 +4,6 @@ import kr.honeybee.beemod.init.BeeBlockTab;
 import kr.honeybee.beemod.init.BeeItemTab;
 import kr.honeybee.beemod.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.server.dedicated.DedicatedServer;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -35,18 +33,5 @@ public class BeeMod {
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
 
-    }
-
-    public static boolean isBeeServer(World world) {
-        if(world.isRemote) {
-            return false;
-        }
-
-        if(!(world.getMinecraftServer() instanceof DedicatedServer)) {
-            return false;
-        }
-
-        DedicatedServer server = (DedicatedServer) world.getMinecraftServer();
-        return server.getStringProperty("server-name", "Server").equals("BeeOnline_IDEN_1031");
     }
 }

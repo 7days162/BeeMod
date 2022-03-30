@@ -17,6 +17,8 @@ public class PacketHandler {
         registerMessage(SPacketOpenBankBook.class, SPacketOpenBankBook.class, 3, Side.CLIENT);
         registerMessage(CPacketAtmInteract.class, CPacketAtmInteract.class, 4, Side.SERVER);
         registerMessage(SPacketPlayerWanted.class, SPacketPlayerWanted.class, 5, Side.CLIENT);
+        registerMessage(SPacketAllowSprint.class, SPacketAllowSprint.class, 6, Side.CLIENT);
+        registerMessage(SPacketOpenAtm.class, SPacketOpenAtm.class, 7, Side.CLIENT);
     }
 
     private static <REQ extends IMessage, REPLY extends IMessage> void registerMessage(Class<? extends IMessageHandler<REQ, REPLY>> messageHandler, Class<REQ> requestMessageType, int id, Side side)

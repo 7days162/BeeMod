@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "beemod:atm", "y": 180 },
+    "facing=east":  { "model": "beemod:atm", "y": 270 },
+    "facing=south": { "model": "beemod:atm", "y": 0 },
+    "facing=west":  { "model": "beemod:atm", "y": 90 }
+  }
+}
