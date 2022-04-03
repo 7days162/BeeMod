@@ -1,0 +1,56 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [16, 25],
+	"textures": {
+		"0": "beemod:items/savingbankbook/blue",
+		"particle": "beemod:items/savingbankbook/blue"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 7],
+			"to": [16, 9, 7.5],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 9.856], "texture": "#0"},
+				"east": {"uv": [8.11429, 1.82857, 9.25102, 2.84474], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 9.856], "texture": "#0"},
+				"west": {"uv": [5.15919, 5.82008, 7.06327, 7.10792], "texture": "#0"},
+				"up": {"uv": [7.34694, 1.536, 9.79592, 3.03674], "texture": "#0"},
+				"down": {"uv": [6.9551, 1.54645, 10.22041, 2.91135], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 3, 0.75],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 3, 0.75],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"rotation": [-6, -10, 0],
+			"translation": [0.5, 5.5, 1],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-6, -10, 0],
+			"translation": [0.5, 5.5, 1],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"ground": {
+			"translation": [0, 6.5, 0],
+			"scale": [0.7, 0.7, 0.7]
+		},
+		"gui": {
+			"translation": [0, 3.25, 0],
+			"scale": [0.9043, 0.9043, 0.9043]
+		},
+		"head": {
+			"translation": [0, 14.25, 0]
+		},
+		"fixed": {
+			"translation": [0, 3.5, 0]
+		}
+	}
+}

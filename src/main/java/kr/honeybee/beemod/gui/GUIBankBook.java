@@ -52,10 +52,10 @@ public class GUIBankBook extends BeeGuiScreen {
 
     public void drawFirstLine() {
         fontRenderer.drawString("거래일", (float) ((getCenterX() - 105) - (fontRenderer.getStringWidth("거래일") / 2)), getCurrentLineY(), TITLE_COLOR, true);
-        fontRenderer.drawString("거래종류", (float) ((getCenterX() - 66) - (fontRenderer.getStringWidth("거래종류") / 2)), getCurrentLineY(), TITLE_COLOR, true);
-        fontRenderer.drawString("거래인", (float) ((getCenterX() - 18) - (fontRenderer.getStringWidth("거래인") / 2)), getCurrentLineY(), TITLE_COLOR, true);
-        fontRenderer.drawString("변경 금액(원)", (float) ((getCenterX() + 39) - (fontRenderer.getStringWidth("변경 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, true);
-        fontRenderer.drawString("남은 금액(원)", (float) ((getCenterX() + 96) - (fontRenderer.getStringWidth("남은 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("거래종류", (float) ((getCenterX() - 67) - (fontRenderer.getStringWidth("거래종류") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("거래인", (float) ((getCenterX() - 19) - (fontRenderer.getStringWidth("거래인") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("변경 금액(원)", (float) ((getCenterX() + 37) - (fontRenderer.getStringWidth("변경 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, true);
+        fontRenderer.drawString("남은 금액(원)", (float) ((getCenterX() + 95) - (fontRenderer.getStringWidth("남은 금액(원)") / 2)), getCurrentLineY(), TITLE_COLOR, true);
     }
 
     public void drawNextLine(String data) {
@@ -64,10 +64,10 @@ public class GUIBankBook extends BeeGuiScreen {
         String[] texts = data.split("\\|");
 
         fontRenderer.drawString(texts[0], (float) ((getCenterX() - 105) - (fontRenderer.getStringWidth(texts[0]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
-        fontRenderer.drawString(texts[1], (float) ((getCenterX() - 66) - (fontRenderer.getStringWidth(texts[1]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
-        fontRenderer.drawString(texts[2], (float) ((getCenterX() - 18) - (fontRenderer.getStringWidth(texts[2]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
-        fontRenderer.drawString(texts[3], (float) ((getCenterX() + 39) - (fontRenderer.getStringWidth(texts[3]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
-        fontRenderer.drawString(texts[4], (float) ((getCenterX() + 96) - (fontRenderer.getStringWidth(texts[4]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
+        fontRenderer.drawString(texts[1], (float) ((getCenterX() - 67) - (fontRenderer.getStringWidth(texts[1]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
+        fontRenderer.drawString(texts[2], (float) ((getCenterX() - 19) - (fontRenderer.getStringWidth(texts[2]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
+        fontRenderer.drawString(texts[3], (float) ((getCenterX() + 37) - (fontRenderer.getStringWidth(texts[3]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
+        fontRenderer.drawString(texts[4], (float) ((getCenterX() + 95) - (fontRenderer.getStringWidth(texts[4]) / 2)), getCurrentLineY(), CONTENT_COLOR, false);
     }
 
     @Override
@@ -84,6 +84,6 @@ public class GUIBankBook extends BeeGuiScreen {
     }
 
     public int getCurrentLineY() {
-        return getCenterY() - (-11 * currentLine + 74);
+        return getCenterY() - (-11 * currentLine + 73);
     }
 }
